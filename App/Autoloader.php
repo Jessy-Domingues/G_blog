@@ -1,5 +1,8 @@
 <?php
 namespace App;
+/**
+ * Permet d'autoloading les classes, plus besoin de tonnes de require
+ */
 class Autoloader{
 
     static function register(){

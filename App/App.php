@@ -16,7 +16,7 @@ class App{
     private static $title = 'Mon super site';
 
     /**
-     * Initialise la connexion
+     * Initialise la connexion et stocke dans $database (singleton)
      */
     public static function getDb(){
         if(self::$database === null ){
@@ -25,11 +25,17 @@ class App{
         return self::$database;
     }
 
+    /**
+     * Fonction permettant de rediriger vers page 404
+     */
     public static function notFound(){
         header("HTTP/1.0 404 Not Found");
         header('Location:index.php?p=404');
     }
 
+    /**
+     * Getter et setter du titre
+     */
     public static function getTitle(){
         return self::$title;
     }

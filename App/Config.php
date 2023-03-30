@@ -1,7 +1,9 @@
 <?php
 
 namespace App;
-
+/**
+ * Exemple de singleton
+ */
 class Config{
 
     private $settings = [];

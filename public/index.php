@@ -10,7 +10,7 @@ if(isset($_GET['p'])) {
 
 
 
-ob_start(); //tu stockeee tout ce qu'il en ressort dans une variable
+ob_start(); //tu stocke tout ce qu'il en ressort dans une variable, ici $content
 if($p === 'home'){
     require '../pages/home.php';
 } elseif ($p === 'article'){

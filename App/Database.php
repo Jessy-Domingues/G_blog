@@ -2,6 +2,9 @@
 namespace App;
 use \PDO;
 
+/**
+ * Classe permettant la connexion avec la base de données
+ */
 class Database{
 
     private $db_name;
@@ -17,6 +20,9 @@ class Database{
         $this->db_host = $db_host;
     }
 
+    /**
+     * Connexion, singleton?
+     */
     private function getPDO(){
         if($this->pdo === null){
         $pdo = new PDO('mysql:dbname=grafi_blog;host=localhost', 'root', '');
@@ -26,12 +32,18 @@ class Database{
         return $this->pdo;
     }
 
+    /**
+     * création d'une fonction requette retournant les données demandées
+     */
     public function query($statement, $class_name){
         $req = $this->getPDO()->query($statement); 
         $datas = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
         return $datas;
     }
 
+    /**
+     * création d'une fonction de requette préparer, si un seul resultat fetch sinon fetchAll
+     */
     public function prepare($statement, $attributes, $class_name, $one = false){
         $req = $this->getPDO()->prepare($statement);
         $req->execute($attributes);
