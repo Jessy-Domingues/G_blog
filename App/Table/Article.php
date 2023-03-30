@@ -11,7 +11,8 @@ class Article extends Table{
             SELECT articles.id, articles.titre, articles.contenu, categories.titre as categorie 
             FROM articles 
             LEFT JOIN categories 
-                ON categorie_id = categories.id"
+                ON categorie_id = categories.id
+            ORDER BY articles.date DESC"
             , __CLASS__); //ici __CLASS__ retourne la classe ou il est contenu
     }
 
@@ -21,7 +22,8 @@ class Article extends Table{
             FROM articles 
             LEFT JOIN categories 
                 ON categorie_id = categories.id
-            WHERE categorie_id = ?"
+            WHERE categorie_id = ?
+            ORDER BY articles.date DESC"
             , [$categorie_id], __CLASS__);
     }
 
